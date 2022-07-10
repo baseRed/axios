@@ -73,7 +73,7 @@ axios.interceptors.response.use(
         // 从pending 列表中移除请求
         removePendingRequest(error.config || {});
         // 需要特殊处理请求被取消的情况
-        if (!Axios.isCancel(error)) {
+        if (!Axios.isCancel(error)) {//上次请求是否取消
             // 请求重发
             return againRequest(error, axios);
         }
